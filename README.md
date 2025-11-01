@@ -23,6 +23,16 @@ By default the container will run `cargo build --release` on your project direct
 
 ## Advanced Usage
 
+### Example Build Script
+
+For a more complete workflow including Steam Devkit integration, see [example_script.sh](example_script.sh). This script:
+- Automatically builds the Docker image if not present
+- Runs the build
+- Copies the binary and assets to a build directory
+- Notifies the Steam Devkit Client for auto-upload to the SteamDeck
+
+Copy it to your project root and run it to streamline your development workflow.
+
 ### Custom Build Commands
 
 You can override the default build command.
