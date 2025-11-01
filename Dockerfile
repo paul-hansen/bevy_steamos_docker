@@ -49,6 +49,8 @@ VOLUME /usr/src/project
 
 WORKDIR /usr/src/project
 
+# Create cargo cache directories
+RUN mkdir -p /usr/local/cargo/registry /usr/local/cargo/git
 
 RUN echo $PATH
 

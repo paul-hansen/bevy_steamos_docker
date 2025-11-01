@@ -19,7 +19,7 @@ if ! docker image inspect bevy_steamos >/dev/null 2>&1; then
     docker build -t bevy_steamos https://raw.githubusercontent.com/paul-hansen/bevy_steamos_docker/main/Dockerfile
 fi
 
-docker run -v .:/usr/src/project bevy_steamos cargo build --release
+docker run -v .:/usr/src/project -v ~/.cargo/registry:/usr/local/cargo/registry -v ~/.cargo/git:/usr/local/cargo/git bevy_steamos cargo build --release
 cp "./target/release/$BINARY_NAME" "./build/$BINARY_NAME"
 cp ./assets/* ./build/assets/
 

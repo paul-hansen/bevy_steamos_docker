@@ -23,6 +23,7 @@ By default the container will run `cargo build --release` on your project direct
 
 ## Advanced Usage
 
+
 ### Example Build Script
 
 For a more complete workflow including Steam Devkit integration, see [example_script.sh](example_script.sh). This script:
@@ -49,6 +50,16 @@ docker build --build-arg RUST_VERSION=1.79.0 -t bevy_steamos https://raw.githubu
 ```
 
 You can use specific versions (e.g., `1.79.0`), or channel names (`stable`, `beta`, `nightly`).
+
+### Share Cargo Cache Between Runs
+
+To speed up builds by reusing downloaded crates between runs, mount your local cargo cache:
+
+```
+docker run -v .:/usr/src/project -v ~/.cargo/registry:/usr/local/cargo/registry -v ~/.cargo/git:/usr/local/cargo/git bevy_steamos
+```
+
+This shares your host cargo cache with the container, making subsequent builds much faster.
 
 ### Pinned Dockerfile Version
 
