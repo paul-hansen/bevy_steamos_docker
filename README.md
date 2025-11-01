@@ -48,3 +48,9 @@ docker build -t bevy_steamos https://raw.githubusercontent.com/paul-hansen/bevy_
 ```
 
 When using in places like CI, this ensures your build process remains consistent even if this repository is updated.
+
+## Alternatives
+
+- [zigbuild](https://github.com/rust-cross/cargo-zigbuild): Seems like a cool solution but I haven't tried it yet. Credit to birus on discord for sharing:
+  > https://github.com/rust-cross/cargo-zigbuild allows you to choose your glibc version. I run `cargo zigbuild --release --target x86_64-unknown-linux-gnu.2.27` and it works with steam deck.
+  Source: https://discord.com/channels/691052431525675048/1267707895164702751/1267864473549537413
